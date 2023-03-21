@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+   <meta charset="UTF-8"> 
+   <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <title>Document</title> 
+</head> 
+ 
+<body> 
+   <div class="d-flex justify-content-center"> 
+      <div id="days" class="float-left align-items-center flex-column d-flex justify-content-center count-header"> 
+         <span><span id="day"></span><br><span style="font-size:10px;font-weight:400;">Jour(s)</span></span></div> 
+      <div id="hours" class="float-left align-items-center flex-column d-flex justify-content-center count-header"> 
+         <span> <span id="hour"></span><br><span style="font-size:10px;font-weight:400;">Heures</span></span></div> 
+      <div id="minutes" class="float-left align-items-center flex-column d-flex justify-content-center count-header"> 
+         <span> <span id="minute"></span><br><span style="font-size:10px;font-weight:400;">Minutes</span></span></div> 
+      <p class="pl-2 float-left" style="font-size:18px;">Ouverture des réservations Hiver 2024 <a 
+            href="https://form.jotform.com/mmvClubs/preresa-H24" class="btn profite-btn ml-4 font-weight-bold">Je 
+            m'inscris dès maintenant <i class="fas fa-chevron-right"></i></a> </p> 
+   </div> 
+   <style> 
+      .count-header { 
+         line-height: 12px; 
+         background: linear-gradient(to right bottom, #fff, #e6e6e6); 
+         color: #1e1e1e; 
+         width: 50px; 
+         height: 40px; 
+         border-radius: 5px; 
+         font-size: 18px; 
+         text-align: center;
+         font-weight: 900; 
+         margin-left: 5px; 
+         margin-right: 5px; 
+         display: grid; 
+         justify-content: center; 
+         align-items: center; 
+      } 
+   </style> 
+ 
+ 
+   <script> 
+      setInterval(makeTimer, 1000); 
+ 
+      function makeTimer() { 
+         var endTime = new Date("April 15, 2023 23:59:59"); 
+         var endTime = (Date.parse(endTime)) / 1000; 
+         var now = new Date(); 
+         var now = (Date.parse(now) / 1000); 
+         var timeLeft = endTime - now; 
+         var days = Math.floor(timeLeft / 86400); 
+         var hours = Math.floor((timeLeft - (days * 86400)) / 3600); 
+         var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60); 
+         var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60))); 
+         if (hours < "10") { hours = "0" + hours; } 
+         if (minutes < "10") { minutes = "0" + minutes; } 
+         if (seconds < "10") { seconds = "0" + seconds; } 
+         document.getElementById("day").innerHTML = days; 
+         document.getElementById("hour").innerHTML = hours; 
+         document.getElementById("minute").innerHTML = minutes; 
+      } 
+   </script> 
+ 
+ 
+</body> 
+ 
+</html>
